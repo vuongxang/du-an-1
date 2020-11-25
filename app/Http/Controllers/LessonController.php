@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Models\Question;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 
@@ -59,7 +60,9 @@ class LessonController extends Controller
      */
     public function show($id)
     {
-        
+        $lesson = Lesson::find($id);
+        $questions = Question::where('lesson_id',$id)->get();
+        return view('backend.lessons.show',compact('lesson','questions'));
     }
 
     /**

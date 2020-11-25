@@ -25,7 +25,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="example2" class="table table-bordered table-hover table-fixed">
                   <thead>
                   <tr>
                     <th>ID</th>
@@ -35,6 +35,7 @@
                     <th>Nội dung 1</th>
                     <th>Nội dung 2</th>
                     <th>Nội dung 3</th>
+                    <th>Chi tiết</th>
                     <th><a href="{{ route('lesson.create') }}" class="btn btn-sm btn-success">Thêm mới</a></th>
                   </tr>
                   </thead>
@@ -45,10 +46,10 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->topic->name}}</td>
                                 <td>{{$item->desc}}</td>
-                                <td><iframe src="{{$item->content_1}}" frameborder="0"></iframe></td>
-                                <td><iframe src="{{$item->content_2}}" frameborder="0"></iframe></td>
-                                <td><iframe src="{{$item->content_3}}" frameborder="0"></iframe></td>
-                                
+                                <td>{{$item->content_1}}</td>
+                                <td>{{$item->content_2}}</td>
+                                <td>{{$item->content_3}}</td>
+                                <td><a href="{{route('lesson.show',$item->id)}}" class="btn btn-success">Show</a></td>
                                 <td class="text-center">
                                     <a href="{{route('lesson.edit',$item->id)}}" class="fas fa-edit text-success"></a>
                                     <form action="{{route('lesson.destroy',$item->id)}}" method="post">

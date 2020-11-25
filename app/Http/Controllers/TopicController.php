@@ -7,6 +7,7 @@ use App\Models\Topic;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\DB;
 use FFI\Exception;
+use App\Http\Requests\StoreTopic;
 class TopicController extends Controller
 {
     /**
@@ -37,11 +38,12 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTopic $request)
     {
         $model = new Topic();
     	$model->fill($request->all());
         if($request->hasFile('image')){
+
             // lấy tên gốc của ảnh
             $filename = $request->image->getClientOriginalName();
             // thay thế ký tự khoảng trắng bằng ký tự '-'
@@ -49,8 +51,8 @@ class TopicController extends Controller
             // thêm đoạn chuỗi không bị trùng đằng trước tên ảnh
             $filename = uniqid() . '-' . $filename;
             // lưu ảnh và trả về đường dẫn
-            $path = $request->file('image')->storeAs('uploads', $filename,'public');
-            $model->image = "storage/images/$path";
+            $path = $request->file('image')->storeAs('topics', $filename);
+            $model->image = "images/$path";
         }
 
     	DB::beginTransaction();

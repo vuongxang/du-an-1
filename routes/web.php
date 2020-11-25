@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -31,4 +29,8 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::resource('topic', 'TopicController');
     Route::resource('lesson', 'LessonController');
     Route::resource('question', 'QuestionController');
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });

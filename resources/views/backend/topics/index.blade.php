@@ -32,7 +32,6 @@
                     <th>Tên</th>
                     <th>Mô tả</th>
                     <th>Ảnh</th>
-                    <th>Số bài học</th>
                     <th>Chi tiết</th>
                     <th>Show menu</th>
                     <th><a href="{{ route('topic.create') }}" class="btn btn-sm btn-success">Thêm mới</a></th>
@@ -44,8 +43,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->desc}}</td>
-                                <td><img src="" alt=""></td>
-                                <td>5</td>
+                                <td><img src="{{$item->image}}" alt=""></td>
                                 <td><a href="{{route('topic.show',$item->id)}}" class="btn btn-success">Show</a></td>
                                 <td>
                                     {{ $item->show_menu==1?"có":"không" }}
