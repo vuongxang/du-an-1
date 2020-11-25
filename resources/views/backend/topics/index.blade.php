@@ -42,9 +42,10 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>{{$item->desc}}</td>
-                                <td><img src="{{$item->image}}" alt=""></td>
-                                <td><a href="{{route('topic.show',$item->id)}}" class="btn btn-success">Show</a></td>
+                                <td>{!!$item->desc!!}</td>
+                                <td><img src="{{$item->image}}" alt="" width="50px"></td>
+                                <td><button class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">Lesson</button></td>
+                                {{-- <td><a href="{{route('topic.show',$item->id)}}" class="btn btn-success">Show</a></td> --}}
                                 <td>
                                     {{ $item->show_menu==1?"có":"không" }}
                                 </td>
@@ -58,12 +59,31 @@
                                 </td>
                             </tr>
                         @endforeach
-                       
                     </tbody>
-                    
                 </table>
                 {{$models->links()}}
               </div>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Topic:</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

@@ -41,19 +41,20 @@ class TopicController extends Controller
     public function store(StoreTopic $request)
     {
         $model = new Topic();
-    	$model->fill($request->all());
-        if($request->hasFile('image')){
+        $model->fill($request->all());
+        // var_dump($model->image); die;
+        // if($request->hasFile('image')){
 
-            // lấy tên gốc của ảnh
-            $filename = $request->image->getClientOriginalName();
-            // thay thế ký tự khoảng trắng bằng ký tự '-'
-            $filename = str_replace(' ', '-', $filename);
-            // thêm đoạn chuỗi không bị trùng đằng trước tên ảnh
-            $filename = uniqid() . '-' . $filename;
-            // lưu ảnh và trả về đường dẫn
-            $path = $request->file('image')->storeAs('topics', $filename);
-            $model->image = "images/$path";
-        }
+        //     // lấy tên gốc của ảnh
+        //     $filename = $request->image->getClientOriginalName();
+        //     // thay thế ký tự khoảng trắng bằng ký tự '-'
+        //     $filename = str_replace(' ', '-', $filename);
+        //     // thêm đoạn chuỗi không bị trùng đằng trước tên ảnh
+        //     $filename = uniqid() . '-' . $filename;
+        //     // lưu ảnh và trả về đường dẫn
+        //     $path = $request->file('image')->storeAs('topics', $filename);
+        //     $model->image = "images/$path";
+        // }
 
     	DB::beginTransaction();
     	try{
