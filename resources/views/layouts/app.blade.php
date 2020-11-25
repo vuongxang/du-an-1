@@ -18,14 +18,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url('frontend/images/bee.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('frontend/images/bee.png')}}">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>BeeEng</title>
 </head>
 <body>
     <div id="app">
         @include('layouts.header')
 
-        <main class="py-4">
+        <main class="">
             @yield('content')
         </main>
     </div>

@@ -5,7 +5,7 @@
     <div class="container mx-auto bg-blue-800  px-8 py-4">
       <div class="grid grid-cols-2 mx-16 ">
         <div class="p-4 flex justify-center">
-          <img src="./images/owl-png-transparent-images-png-only-2.png" alt="" width="200px">
+            <img src="{{asset('frontend/images/owl-png-transparent-images-png-only-2.png')}}" alt="" width="200px">
         </div>
         <div class="p-4 flex flex-col items-center justify-center">
           <p class="text-white text-3xl font-bold font-sans">Learn English Free </p>

@@ -17,7 +17,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $models = Topic::paginate(5);
+        $models = Topic::paginate(10);
         
         return view('backend.topics.index',compact('models'));
     }
