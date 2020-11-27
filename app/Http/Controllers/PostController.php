@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lesson;
-use App\Models\Question;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
-class QuestionController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $models = Question::paginate(10);
-        return view('backend.questions.index',compact('models'));
+        $models = Post::paginate(5);
+        return view('backend.posts.index',compact('models'));
     }
 
     /**
@@ -26,8 +25,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        $lessons = Lesson::all();
-        return view('backend.questions.create',compact('lessons'));
+        return view('backend.posts.create');
     }
 
     /**
@@ -38,19 +36,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        Question::insert([
-            'name' => $request->name,
-            'lesson_id' => $request->lesson_id,
-            'content' => $request->content,
-            'a' => $request->a,
-            'b' => $request->b,
-            'c' => $request->c,
-            'd' => $request->d,
-            'dap_an_dung'=>$request->dap_an_dung
-        ]);
-
-        return redirect()->route('question.index');
-
+        $models = new Post();
+        $models->fill($request->all());
+        $models->image = str_replace('http://localhost', 'http://127.0.0.1:8000',$models->image);
+        $models->save();
+        return redirect()->route('post.index');
     }
 
     /**
@@ -72,9 +62,8 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        $lessons = Lesson::all();
-        $model = Question::find($id);
-        return view('backend.questions.edit',compact('lessons','model'));
+        $model = Post::find($id);
+        return view('backend.posts.edit',compact('model'));
     }
 
     /**
@@ -86,10 +75,13 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = Question::find($id);
+        $model = Post::find($id);
         $model->fill($request->all());
+        $model->image = str_replace('http://localhost', 'http://127.0.0.1:8000',$model->image);
         $model->save();
-        return redirect()->route('question.index',$model->id);
+        // echo "<pre>";
+        // var_dump($model); die;
+        return redirect()->route('post.index',$model->id);
     }
 
     /**
@@ -100,8 +92,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        $model = Question::find($id);
+        $model = Post::find($id);
         $model->delete();
-        return redirect()->route('lesson.index');
+        return redirect()->route('post.index');
     }
 }

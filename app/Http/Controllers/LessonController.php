@@ -108,4 +108,10 @@ class LessonController extends Controller
         $model->delete();
         return redirect()->route('lesson.index');
     }
+
+    public function lessonPage($id){
+        $topic = Topic::find($id);
+        $lessons = Lesson::where('topic_id',$id)->get();
+        return view('frontend.pages.lesson',compact('lessons','topic'));
+    }
 }

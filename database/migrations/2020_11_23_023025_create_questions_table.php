@@ -24,7 +24,7 @@ class CreateQuestionsTable extends Migration
             $table->string('b')->nullable();
             $table->string('c')->nullable();
             $table->string('d')->nullable();
-            $table->integer('dap_an_dung')->default(1);
+            $table->string('dap_an_dung')->default('a');
 
             $table->timestamps();
         });

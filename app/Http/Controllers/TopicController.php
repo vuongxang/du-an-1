@@ -124,4 +124,8 @@ class TopicController extends Controller
         $model->delete();
         return redirect()->route('topic.index');
     }
+    public function topicPage(){
+        $topics = Topic::paginate(10);
+        return view('frontend.pages.topics',compact('topics'));
+    }
 }

@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="question-name">Nội dung câu hỏi</label>
-                                        <textarea class="form-control" name="content" id="" rows="3"></textarea>
+                                        <textarea class="form-control" name="content" id="my-editor" rows="3"></textarea>
                                         @error('content')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="question-name">Đáp án A</label>
-                                        <textarea class="form-control" name="a" id="" rows="3"></textarea>
+                                        <input class="form-control" name="a" id="" >
                                         @error('a')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
@@ -76,8 +76,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="question-name">Đáp án B</label>
-                                        <textarea class="form-control" name="b" id="" rows="3"></textarea>
-                                        @error('a')
+                                        <input class="form-control" name="b" id="" >
+                                        @error('b')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
                                             </span>
@@ -85,8 +85,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="question-name">Đáp án C</label>
-                                        <textarea class="form-control" name="c" id="" rows="3"></textarea>
-                                        @error('a')
+                                        <input class="form-control" name="c" id="" >
+                                        @error('c')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
                                             </span>
@@ -94,8 +94,8 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="question-name">Đáp án D</label>
-                                        <textarea class="form-control" name="d" id="" rows="3"></textarea>
-                                        @error('a')
+                                        <input class="form-control" name="d" id="" >
+                                        @error('d')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
                                             </span>
@@ -104,10 +104,10 @@
                                     <div class="form-group">
                                         <label for="question-name">Đáp án đúng</label>
                                         <select name="dap_an_dung" id="">
-                                            <option value="1">A</option>
-                                            <option value="2">B</option>
-                                            <option value="3">C</option>
-                                            <option value="4">D</option>
+                                            <option value="a">A</option>
+                                            <option value="b">B</option>
+                                            <option value="c">C</option>
+                                            <option value="d">D</option>
                                         </select>
                                     </div>
                                 </div>

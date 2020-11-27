@@ -46,7 +46,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>5</td>
-                                <td>{{$item->content}}</td>
+                                <td>{!!$item->content!!}</td>
                                 <td>{{$item->a}}</td>
                                 <td>{{$item->b}}</td>
                                 <td>{{$item->c}}</td>

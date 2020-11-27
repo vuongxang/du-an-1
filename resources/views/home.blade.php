@@ -21,77 +21,90 @@
   <div class="">
     <div class="container mx-auto grid grid-cols-2 gap-4">
       <div class="">
+        @foreach ($posts as $item)
         <div class="grid grid-cols-2 gap-1 p-4">
-          <img src="./images/photo-1531537571171-a707bf2683da.jpg" width="200px" alt="">
+          <img src="{{$item->image}}" width="200px" alt="">
           <div class="">
-            <h3 class="text-lg font-bold">Tiếng Anh Đỉnh Cao Mãi Mãi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quis ... </p>
-            <button class=" border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</button>
+            <h3 class="text-lg font-bold">{{$item->title}}</h3>
+            <p>{!!$item->content!!}</p>
+            <a class=" border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</a>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-1 p-4">
-          <img src="./images/photo-1531537571171-a707bf2683da.jpg" width="200px" alt="">
-          <div class="">
-            <h3 class="text-lg font-bold">Tiếng Anh Đỉnh Cao Mãi Mãi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quis ... </p>
-            <button class=" border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</button>
-          </div>
-        </div>
-        <div class="grid grid-cols-2 gap-1 p-4">
-          <img src="./images/photo-1531537571171-a707bf2683da.jpg" width="200px" alt="">
-          <div class="">
-            <h3 class="text-lg font-bold">Tiếng Anh Đỉnh Cao Mãi Mãi</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quis ... </p>
-            <button class=" border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</button>
-          </div>
-        </div>
+        @endforeach
+        {{$posts->links()}}
+        <!--End Posts-->
+
       </div>
       <div class="">
         <div class="p-4  flex justify-center">
-          <div class="border rounded p-4  bg-blue-800 shadow-md">
-            <h3 class="text-white text-center font-bold text-xl">Register Now</h3>
-            <form class=" px-16 pt-6 pb-8 mb-2">
-              <div class="mb-4">
-                <label class="block text-white text-sm font-bold mb-2" for="username">
-                  Username
-                </label>
-                <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username" type="text" placeholder="Username">
+          @guest
+            @if (Route::has('register'))
+              <div class="border rounded p-4  bg-blue-800 shadow-md">
+                <h3 class="text-white text-center font-bold text-xl">Register Now</h3>
+                <form class=" px-16 pt-6 pb-8 mb-2" action="{{ route('register')}}">
+                  @csrf
+                  <div class="mb-4">
+                    <label class="block text-white text-sm font-bold mb-2" for="username">
+                      {{ __('Name') }}
+                    </label>
+                    <input
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('name') is-invalid @enderror"
+                      id="username" type="text" name="name" placeholder="Username" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                      @error('name')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                    </div>
+                  <div class="mb-4">
+                    <label class="block text-white text-sm font-bold mb-2" for="username">
+                      {{ __('E-Mail Address') }}
+                    </label>
+                    <input
+                      class="@error('email') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="username" type="text" placeholder="Username" name="email" value="{{ old('email') }}" required autocomplete="email">
+                      @error('email')
+                        <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                  <div class="mb-4">
+                    <label class="block text-white text-sm font-bold mb-2" for="username">
+                      {{ __('Password') }}
+                    </label>
+                    <input
+                      class="@error('password') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="username" type="password" name="password" required autocomplete="new-password">
+                      @error('password')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+                  <div class="mb-6">
+                    <label class="block text-white text-sm font-bold mb-2" for="password">
+                      {{ __('Confirm Password') }}
+                    </label>
+                    <input
+                      class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="password" type="password" name="password_confirmation" required autocomplete="new-password">
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <button
+                      class="bg-white text-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                      type="submit">
+                      {{ __('Register') }}
+                    </button>
+                  </div>
+                </form>
               </div>
-              <div class="mb-4">
-                <label class="block text-white text-sm font-bold mb-2" for="username">
-                  Email
-                </label>
-                <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username" type="text" placeholder="Username">
+            @endif
+            @else
+              <div class="bg-blue-800 w-full">
+                <h3 class="text-white">Quản lý học tập</h3>
               </div>
-              <div class="mb-4">
-                <label class="block text-white text-sm font-bold mb-2" for="username">
-                  Password
-                </label>
-                <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="username" type="password" placeholder="******************">
-              </div>
-              <div class="mb-6">
-                <label class="block text-white text-sm font-bold mb-2" for="password">
-                  Confirm Password
-                </label>
-                <input
-                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="password" type="password" placeholder="******************">
-              </div>
-              <div class="flex items-center justify-between">
-                <button
-                  class="bg-white  text-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  type="button">
-                  Register Now
-                </button>
-              </div>
-            </form>
-          </div>
+          @endguest
         </div>
       </div>
     </div>

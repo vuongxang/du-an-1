@@ -157,6 +157,7 @@
     @include('backend.admin-layouts.script')
     <script>
       $('#lfm').filemanager('image');
+      
       var options = {
                 filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
                 filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',

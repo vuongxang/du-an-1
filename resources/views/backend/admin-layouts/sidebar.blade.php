@@ -36,22 +36,22 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Danh mục
+                Bài viết
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right">2</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{ route('category.create')}}" class="nav-link">
+              <a href="{{ route('post.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Thêm mới</p>
                 </a>
               </li>
               <li class="nav-item">
-              <a href="{{ route('category.index')}}" class="nav-link">
+              <a href="{{ route('post.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Danh sách danh mục</p>
+                  <p>Danh sách bài viết</p>
                 </a>
               </li>
             </ul>

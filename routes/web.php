@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -29,6 +29,14 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::resource('topic', 'TopicController');
     Route::resource('lesson', 'LessonController');
     Route::resource('question', 'QuestionController');
+    Route::resource('post', 'PostController');
+});
+
+
+//route site
+Route::group(['prefix' => 'site'], function () {
+    Route::get('topic', 'TopicController@topicPage')->name('site.topic');
+    Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
