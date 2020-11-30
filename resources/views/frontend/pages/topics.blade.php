@@ -86,7 +86,7 @@
                   Author Name
                 </p>
               </a> -->
-                <a class="ring-2 ring-indigo-300 px-3 py-2 rounded-full text-indigo-500" href="{{route('site.topic-detail',$item->id)}}">
+                <a class="ring ring-2 ring-indigo-300 px-3 py-2 rounded-full text-indigo-500 hover:bg-indigo-500 hover:no-underline hover:text-gray-50" href="{{route('site.topic-detail',$item->id)}}">
                   <span class="">Xem Thêm</span>
                 </a>
                 <p class="bg-purple-600 px-3 py-2 rounded-full text-gray-50" href="#">

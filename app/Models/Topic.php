@@ -14,8 +14,10 @@ class Topic extends Model
         'id',
         'name',
         'desc',
+        'price',
         'image',
-        'show_menu'
+        'show_menu',
+        'view_count'
     ];
 
     public function lesson(){

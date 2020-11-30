@@ -27,11 +27,15 @@
         <li class="list-group-item  group hover:bg-indigo-600 ">
           <div class="flex justify-between">
             <div>
-              <a href="{{route('site.lesson',$item->id)}}" class="group-hover:text-gray-100 ">Tên Bài Học : {{$item->name}} </a>
+              <a href="{{route('site.lesson',$item->id)}}" class="group-hover:text-gray-100 group-hover:no-underline ">Tên Bài Học : {{$item->name}} </a>
             </div>
             <div>
-              <p class="group-hover:text-gray-100">Thời gian học:</p>
+              <p class="group-hover:text-gray-100 group-hover:no-underline">Thời gian học:</p>
             </div>
+            <div>
+              <a href="{{route('site.get-question',$item->id)}}" class="text-gray-100 group-hover:no-underline bg-indigo-600 px-3 py-2 rounded-full group-hover:bg-gray-50 font-semibold group-hover:text-indigo-600">Bắt đầu </a>
+            </div>
+            
           </div>
         </li>
         @endforeach

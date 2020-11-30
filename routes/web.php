@@ -38,6 +38,7 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('topic', 'TopicController@topicPage')->name('site.topic');
     Route::get('topic/{id}', 'TopicController@topicDetail')->name('site.topic-detail');
     Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
+    Route::get('question/{id}', 'QuestionController@getQuestion')->name('site.get-question');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

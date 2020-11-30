@@ -13,14 +13,12 @@
         <div class="container mx-auto ">
           <div class="flex h-48 justify-between  px-24 py-16">
             <div class="flex-1 mr-16">
-              <h3 class="text-xl font-bold font-mono">English Course</h3>
+              <h3 class="text-xl font-bold font-mono">Học tiếng anh với Beeng</h3>
               <p class="my-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rerum cumque pariatur delectus blanditiis libero obcaecati, consectetur,
-                voluptatem minima dignissimos mollitia tenetur! Laudantium quisquam libero
-                expedita minus, unde nostrum! Exercitationem, dignissimos!
+                Nền tảng học tập ngôn ngữ phổ biến nhất thế giới nay đã sử dụng được cho các lớp học. Hàng nghìn thành viên đã sử dụng nó để tăng cường cho các bài học của mình.
               </p>
-              <button class="border-black border-2 rounded-full py-1 px-2">Xem Thêm</button>
+              <button class="bg-indigo-900 border-1 rounded-full py-2 px-3 text-pink-100 font-semibold">Xem Thêm</button>
+              <button class="border-indigo-900 border-2 rounded-full py-2 px-3  text-indigo-900 font-bold">Học Ngay</button>
             </div>
             <div class="flex-1">
               <img src="{{asset('frontend/images/Untitled-3.png')}}" class="d-block  w-96 " alt="...">
@@ -33,18 +31,16 @@
       <div class="bg-gray-300 h-96">
         <div class="container mx-auto ">
           <div class="flex h-48 justify-between  px-24 py-16">
-          <div class="flex-1 mr-16">
+            <div class="flex-1 mr-16">
               <img src="{{asset('frontend/images/Untitled-4.png')}}" class="d-block   " alt="..." width="400px">
             </div>
             <div class="flex-1 ">
-              <h3 class="text-xl font-bold font-mono">English Course</h3>
+              <h3 class="text-xl font-bold font-mono">Beeng trang web tốt nhất để học tiếng anh</h3>
               <p class="my-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rerum cumque pariatur delectus blanditiis libero obcaecati, consectetur,
-                voluptatem minima dignissimos mollitia tenetur! Laudantium quisquam libero
-                expedita minus, unde nostrum! Exercitationem, dignissimos!
+                Học tập cùng Duolingo sẽ vô cùng vui nhộn và gây nghiện. Kiếm điểm khi trả lời đúng, chạy đua cùng thời gian, hay lên cấp độ với những bài học nhỏ gọn nhưng thực sự hiệu quả.
               </p>
-              <button class="border-black border-2 rounded-full py-1 px-2">Xem Thêm</button>
+              <button class="bg-indigo-900 border-1 rounded-full py-2 px-3 text-pink-100 font-semibold">Xem Thêm</button>
+              <button class="border-indigo-900 border-2 rounded-full py-2 px-3  text-indigo-900 font-bold">Học Ngay</button>
             </div>
           </div>
         </div>
@@ -55,14 +51,15 @@
         <div class="container mx-auto ">
           <div class="flex h-48 justify-between  px-24 py-16">
             <div class="flex-1 mr-16">
-              <h3 class="text-xl font-bold font-mono">English Course</h3>
+              <h3 class="text-xl font-bold font-mono">Beeng diễn đàn ngôn ngữ </h3>
               <p class="my-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Rerum cumque pariatur delectus blanditiis libero obcaecati, consectetur,
-                voluptatem minima dignissimos mollitia tenetur! Laudantium quisquam libero
-                expedita minus, unde nostrum! Exercitationem, dignissimos!
+                Trong công cuộc học tiếng Anh, từ mới,ngữ pháp hằn là một trong những phần nan giải nhất,
+                do đó người học cần tăng cường sử dụng tiếng anh trong các tình huống hàng ngày,
+                luyện tập thảo luận bằng tiếng Anh qua các chủ đề cùng với beeng bất cứ thời gian nào. <br>
+                Hãy cùng với Beeng thảo luận về các chủ đề tiếng anh mới nhất.
               </p>
-              <button class="border-black border-2 rounded-full py-1 px-2">Xem Thêm</button>
+              <button class="bg-indigo-900 border-1 rounded-full py-2 px-3 text-pink-100 font-semibold">Xem Thêm</button>
+              <button class="border-indigo-900 border-2 rounded-full py-2 px-3  text-indigo-900 font-bold">Học Ngay</button>
             </div>
             <div class="flex-1">
               <img src="{{asset('frontend/images/Untitled-5.png')}}" class="d-block  w-96 " alt="...">
