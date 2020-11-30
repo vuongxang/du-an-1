@@ -8,6 +8,7 @@ use App\Models\Lesson;
 use Illuminate\Support\Facades\DB;
 use FFI\Exception;
 use App\Http\Requests\StoreTopic;
+
 class TopicController extends Controller
 {
     /**
@@ -18,8 +19,8 @@ class TopicController extends Controller
     public function index()
     {
         $models = Topic::paginate(10);
-        
-        return view('backend.topics.index',compact('models'));
+
+        return view('backend.topics.index', compact('models'));
     }
 
     /**
@@ -56,18 +57,18 @@ class TopicController extends Controller
         //     $model->image = "images/$path";
         // }
 
-    	DB::beginTransaction();
-    	try{
+        DB::beginTransaction();
+        try {
 
-			$model->save();
-			DB::commit();
-    	}catch(Exception $ex){
-    		// ghi log lỗi lại
-    		DB::rollback();
-    	}
-    	
+            $model->save();
+            DB::commit();
+        } catch (Exception $ex) {
+            // ghi log lỗi lại
+            DB::rollback();
+        }
 
-    	return redirect()->route('topic.index');
+
+        return redirect()->route('topic.index');
     }
 
     /**
@@ -78,8 +79,8 @@ class TopicController extends Controller
      */
     public function show(Topic $topic)
     {
-        $lessons = Lesson::where('topic_id',$topic->id)->get();
-        return view('backend.topics.show',compact('topic','lessons'));
+        $lessons = Lesson::where('topic_id', $topic->id)->get();
+        return view('backend.topics.show', compact('topic', 'lessons'));
     }
 
     /**
@@ -90,9 +91,9 @@ class TopicController extends Controller
      */
     public function edit($id)
     {
-        $topic=Topic::find($id);
+        $topic = Topic::find($id);
         // $cate = Topic::find($id);
-        return view('backend.topics.edit')->with('topic',$topic);
+        return view('backend.topics.edit')->with('topic', $topic);
     }
 
     /**
@@ -109,7 +110,7 @@ class TopicController extends Controller
         $model->save();
         // echo "<pre>";
         // var_dump($model); die;
-        return redirect()->route('topic.index',$model->id);
+        return redirect()->route('topic.index', $model->id);
     }
 
     /**
@@ -124,8 +125,20 @@ class TopicController extends Controller
         $model->delete();
         return redirect()->route('topic.index');
     }
-    public function topicPage(){
+    public function topicPage()
+    {
         $topics = Topic::paginate(10);
-        return view('frontend.pages.topics',compact('topics'));
+        // echo "<pre>";
+        // var_dump($topics);die;
+        return view('frontend.pages.topics', compact('topics'));
+    }
+    public function topicDetail($id)
+    {
+        $topicDetail = Topic::where('id', $id)->first();
+        $lessons = Lesson::where('topic_id', $topicDetail->id)->get();
+        // $topicDetail=Topic::where('id',$id)->first();
+        // $cate = Topic::find($id);
+
+        return view('frontend.pages.topicdetail', compact('topicDetail','lessons'));
     }
 }

@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 //route site
 Route::group(['prefix' => 'site'], function () {
     Route::get('topic', 'TopicController@topicPage')->name('site.topic');
+    Route::get('topic/{id}', 'TopicController@topicDetail')->name('site.topic-detail');
     Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
 });
 
