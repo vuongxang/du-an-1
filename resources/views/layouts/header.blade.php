@@ -26,7 +26,7 @@
                             <div class="flex justify-center ">
                               <div class="px-4 py-3 m-2 text-xl text-white font-bold"><a href="">Home</a></div>
                               <div class="px-4 py-3 m-2 text-xl text-white font-bold"><a href="{{route('site.topic')}}">Topic</a></div>
-                              <div class="px-4 py-3 m-2 text-xl text-white font-bold"><a href="">News</a></div>
+                              <div class="px-4 py-3 m-2 text-xl text-white font-bold"><a href="{{route('site.post')}}">News</a></div>
                             </div>
                           </div>
                         </div>

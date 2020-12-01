@@ -31,7 +31,7 @@
 <script src="{{asset('backend/dist/js/pages/dashboard.js')}}"></script>
 <!-- backend for demo purposes -->
 <script src="{{asset('backend/dist/js/demo.js')}}"></script>
-<script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/adapters/jquery.js"></script>
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>

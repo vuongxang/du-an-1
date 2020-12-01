@@ -10,8 +10,9 @@
         <div class="p-4 flex flex-col items-center justify-center">
           <p class="text-white text-3xl font-bold font-sans">Learn English Free </p>
           <div class="grid grid-cols-2 my-4">
-            <button class="mx-4 border rounded px-4 py-2 text-blue-800 bg-white font-bold">Start Now</button>
-            <button class="mx-4 border rounded px-4 py-2 text-blue-800 bg-white font-bold">Login</button>
+          <a href="{{route('site.topic')}}" class="mx-4 border rounded px-4 py-2 text-blue-800 bg-white font-bold">Start now</a>
+            {{-- <button class="mx-4 border rounded px-4 py-2 text-blue-800 bg-white font-bold">Start Now</button> --}}
+            {{-- <button class="mx-4 border rounded px-4 py-2 text-blue-800 bg-white font-bold">Login</button> --}}
           </div>
         </div>
       </div>

@@ -29,12 +29,22 @@
   </div>
   <div class="col-span-4">
     <div class=" border border-gray-400 rounded px-4 py-4">
-    <h2 class="text-2xl mb-2">Topic name : {{$topic->name}}</h2>
-      <ul class="list-none">
-        @foreach ($lessons as $item)
-            <li class="border-b-2 border-gray-300 py-2 flex align-items-center"><a href="{{route('site.lesson.content',$item->id)}}" class="text-blue-800">{{$item->name}}</a></li>
-        @endforeach
-      </ul>
+    <h2 class="text-2xl mb-2">Bài viết</h2>
+    <div class="">
+      @foreach ($models as $item)
+      <div class="grid grid-cols-2 gap-1 p-4">
+        <img src="{{$item->image}}" width="200px" alt="">
+        <div class="">
+          <h3 class="text-lg font-bold">{{$item->title}}</h3>
+          <p>{!!$item->content!!}</p>
+          <a class=" border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</a>
+        </div>
+      </div>
+      @endforeach
+      {{$models->links()}}
+      <!--End Posts-->
+
+    </div>
     </div>
   </div>
 </div>

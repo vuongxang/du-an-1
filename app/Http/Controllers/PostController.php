@@ -96,4 +96,9 @@ class PostController extends Controller
         $model->delete();
         return redirect()->route('post.index');
     }
+
+    public function postPage(){
+        $models = Post::paginate(8);
+        return view('frontend.pages.posts',compact('models'));
+    }
 }

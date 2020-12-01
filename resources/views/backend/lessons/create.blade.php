@@ -68,9 +68,9 @@
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="lesson-name">Link video 1</label>
-                                        <input type="text" name="content_1" class="form-control" id="lesson-name"
-                                            placeholder="link...">
+                                        <label for="lesson-name">Content 1</label>
+                                        <textarea type="text" name="content_1" class="form-control" id="editor"
+                                            placeholder="link..."></textarea>
                                         @error('content_1')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}

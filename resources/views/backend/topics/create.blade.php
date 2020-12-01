@@ -51,7 +51,7 @@
                                     <div class="form-group">
                                         <label>Mô tả</label>
                                         <textarea class="form-control" name="desc" rows="3"
-                                            placeholder="Mô tả..." id="my-editor"></textarea>
+                                            placeholder="Mô tả..." id="editor"></textarea>
                                         @error('desc')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
