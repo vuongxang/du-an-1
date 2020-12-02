@@ -31,9 +31,10 @@
                     <th>ID</th>
                     <th>Tên</th>
                     <th>Mô tả</th>
+                    <th>Giá</th>
                     <th>Ảnh</th>
                     <th>Chi tiết</th>
-                    <th>Show menu</th>
+                    <th>Hiển thị ở menu</th>
                     <th><a href="{{ route('topic.create') }}" class="btn btn-sm btn-success">Thêm mới</a></th>
                   </tr>
                   </thead>
@@ -43,6 +44,7 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{!!$item->desc!!}</td>
+                                <td>{{$item->price==0?"Miễn phí":$item->price}}</td>
                                 <td><img src="{{$item->image}}" alt="" width="50px"></td>
                                 <td><button class="btn btn-primary" data-toggle="modal" data-target="#lesson-{{$item->id}}">{{count($item->lesson)}}Lesson</button></td>
                                 {{-- <td><a href="{{route('topic.show',$item->id)}}" class="btn btn-success">Show</a></td> --}}

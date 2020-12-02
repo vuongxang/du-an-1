@@ -110,9 +110,10 @@ class LessonController extends Controller
     }
 
     public function lessonPage($id){
-        $topic = Topic::find($id);
-        $lessons = Lesson::where('topic_id',$id)->get();
-        return view('frontend.pages.lesson',compact('lessons','topic'));
+        $lesson = Lesson::find($id);
+        $lessons = Lesson::where('topic_id',$lesson->topic_id)->get();
+
+        return view('frontend.pages.lesson',compact('lesson','lessons'));
     }
 
     public function lessonShowPage($id){

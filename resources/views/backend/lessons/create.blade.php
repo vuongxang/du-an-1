@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="lesson-name">Content 1</label>
-                                        <textarea type="text" name="content_1" class="form-control" id="editor"
+                                        <textarea type="text" name="content_1" class="form-control" id="lesson-name"
                                             placeholder="link..."></textarea>
                                         @error('content_1')
                                             <span class="text-danger" role="alert">
@@ -78,7 +78,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="lesson-name">Link video 2</label>
+                                        <label for="lesson-name">Content 2</label>
                                         <input type="text" name="content_2" class="form-control" id="lesson-name"
                                             placeholder="link...">
                                         @error('content_2')
@@ -88,7 +88,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="lesson-name">Link video 3</label>
+                                        <label for="lesson-name">Content 3</label>
                                         <input type="text" name="content_3" class="form-control" id="lesson-name"
                                             placeholder="link...">
                                         @error('content_3')

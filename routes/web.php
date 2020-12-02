@@ -36,9 +36,11 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
 //route site
 Route::group(['prefix' => 'site'], function () {
     Route::get('topic', 'TopicController@topicPage')->name('site.topic');
+    Route::get('topic/{id}', 'TopicController@topicDetail')->name('site.topic-detail');
     Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
-    Route::get('post', 'PostController@postPage')->name('site.post');
-    Route::get('lesson/content/{id}', 'LessonController@lessonShowPage')->name('site.lesson.content');
+    Route::get('question/{id}', 'QuestionController@getQuestion')->name('site.get-question');
+    Route::post('quizz', 'LamQuizzController@quizz')->name('site.quizz-test');
+    
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

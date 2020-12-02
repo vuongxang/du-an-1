@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTopicsTable extends Migration
+class CreateChiTietLamQuizzsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('chi_tiet_lam_quizzs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('desc')->nullable();
-            // $table->double('prices',8,2)->after('desc');
-            $table->string('image')->nullable();
-            $table->integer('show_menu')->default(1);
+            $table->integer('lamquizz_id');
+            $table->integer('question_id');
+            $table->integer('trang_thai');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('chi_tiet_lam_quizzs');
     }
 }
