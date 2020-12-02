@@ -32,7 +32,6 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::resource('post', 'PostController');
 });
 
-
 //route site
 Route::group(['prefix' => 'site'], function () {
     Route::get('topic', 'TopicController@topicPage')->name('site.topic');
