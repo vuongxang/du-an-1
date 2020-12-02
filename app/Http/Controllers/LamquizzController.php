@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\LamQuizz;
 use App\Models\ChiTietLamQuizz;
+use App\Models\Lesson;
+use App\Models\Topic;
+
 class LamquizzController extends Controller
 {
     public function quizz(Request $request){
@@ -39,10 +42,10 @@ class LamquizzController extends Controller
             }
             $model->save();
         }
-        $models = ChiTietLamQuizz::where('lesson_id',$request->lesson_id)->where('trang_thai',1)->get();
+        $models = ChiTietLamQuizz::where('lesson_id',$request->lesson_id)->where('trang_thai',1)->where('lamquizz_id',$lam_quizz->id)->get();
 
-        $point = count($models)/count($questions);
-
+        $point = count($models)/count($questions)*10;
+        
         $lam_quizz->point = $point;
         if($lam_quizz->point<8){
             $lam_quizz->trang_thai = 0;
@@ -50,5 +53,8 @@ class LamquizzController extends Controller
             $lam_quizz->trang_thai = 1;
         }
         $lam_quizz->save();
+        $lesson = Lesson::find($request->lesson_id);
+        $topic = Topic::find($request->topic_id);
+        return view('frontend.pages.thong-bao',compact('point','lesson','topic'));
     }
 }
