@@ -44,9 +44,7 @@ class LessonController extends Controller
             'name' => $request->name,
             'desc' => $request->desc,
             'topic_id' => $request->topic_id,
-            'content_1' => $request->content_1,
-            'content_2' => $request->content_2,
-            'content_3' => $request->content_3,
+            'video' => $request->video,
         ]);
 
         return redirect()->route('lesson.index');
@@ -112,6 +110,13 @@ class LessonController extends Controller
     public function lessonPage($id){
         $topic = Topic::find($id);
         $lessons = Lesson::where('topic_id',$id)->get();
-        return view('frontend.pages.lesson',compact('lessons','topic'));
+        $lessonspag = Lesson::where('topic_id',$id)->simplePaginate(1);
+        return view('frontend.pages.lesson',compact('lessons','topic','lessonspag'));
+    }
+    public function showLesson($id)
+    {
+        $findQuestion = Lesson::find($id);
+        
+        return view('frontend.pages.showlesson',compact('findQuestion'));
     }
 }

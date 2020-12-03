@@ -24,8 +24,6 @@ Route::group(['prefix' => 'admin','middleware'=>'adminLogin'], function () {
     Route::get('/', 'AdminController@index')->name('admin');
 
     Route::resource('user', 'UserController');
-    Route::resource('category', 'CategoryController');
-    Route::resource('product', 'ProductController');
     Route::resource('topic', 'TopicController');
     Route::resource('lesson', 'LessonController');
     Route::resource('question', 'QuestionController');
@@ -39,6 +37,8 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('topic/{id}', 'TopicController@topicDetail')->name('site.topic-detail');
     Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
     Route::get('question/{id}', 'QuestionController@getQuestion')->name('site.get-question');
+    Route::post('quizz', 'LamQuizzController@quizz')->name('site.quizz-test');
+    // Route::get('lesson/{id}', 'LessonController@showLesson')->name('site.show-lesson');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

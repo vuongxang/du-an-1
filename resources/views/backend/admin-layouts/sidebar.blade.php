@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-indigo-900">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
       <img src="{{asset('backend/dist/img/wisdom.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -22,7 +22,7 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item has-treeview menu-open">
-          <a href="{{route('admin')}}" class="nav-link active">
+          <a href="{{route('admin')}}" class="nav-link ">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Trang Chủ

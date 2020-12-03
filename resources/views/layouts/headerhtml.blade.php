@@ -1,7 +1,4 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
@@ -11,7 +8,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -22,15 +18,3 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('frontend/images/bee.png')}}">
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <title>Beeng</title>
-</head>
-<body>
-    <div id="app">
-        @include('layouts.header')
-
-        <main class="">
-            @yield('content')
-        </main>
-    </div>
-    @include('layouts.footer')
-</body>
-</html>

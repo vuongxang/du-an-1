@@ -104,10 +104,5 @@ class QuestionController extends Controller
         $model->delete();
         return redirect()->route('lesson.index');
     }
-    public function getQuestion($id)
-    {
-        $findQuestion = Question::find($id);
-        
-        return view('frontend.pages.showquestions',compact('findQuestion'));
-    }
+    
 }

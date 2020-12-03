@@ -30,7 +30,7 @@
         <ul class="list-none">
           @foreach ($topics as $item)
           <li class="border-b-2 border-gray-300 py-2 flex align-items-center">
-            <a href="{{route('site.lesson',$item->id)}}" class="text-blue-800">{{$item->name}} </a>
+            <a href="{{route('site.lesson',$item->id)}}" class="text-blue-800">Chủ đề: {{$item->name}} </a>
           </li>
           @endforeach
         </ul>
@@ -60,24 +60,24 @@
             <article class="overflow-hidden rounded-lg shadow-lg">
 
               <a href="#">
-                <img alt="Placeholder" class="block h-auto w-full" src="https://picsum.photos/600/400/?random">
+                <img alt="Placeholder" class="block h-64 w-full " src="{{$item->image}}">
               </a>
 
               <header class="flex items-center justify-between leading-tight p-3 md:p-4">
                 <h1 class="text-lg">
                   <a class="no-underline text-black font-semibold hover:underline hover:text-black   " href="">
-                    {{$item->name}}
+                    Chủ đề: {{$item->name}}
                   </a>
                 </h1>
                 <p class="text-grey-darker text-sm">
-                  <!-- 14/4/19 -->
+                  
                 </p>
               </header>
 
               <body>
                 <p class="p-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint velit labore a molestias fuga sapiente reiciendis cumque nisi autem quod enim accusamus minus aliquid nihil laborum debitis, odit, delectus dignissimos.
-                </p>
+                {{$item->desc}}
+              </p>
               </body>
               <footer class="flex items-center justify-between leading-none p-3 md:p-4 ">
                 <!-- <a class="flex items-center no-underline hover:underline text-black" href="#">
@@ -90,7 +90,7 @@
                   <span class="">Xem Thêm</span>
                 </a>
                 <p class="bg-purple-600 px-3 py-2 rounded-full text-gray-50" href="#">
-                  <span class="">Miễn Phí</span>
+                  <span class="">{{$item->price==0?"Miễn Phí":"$item->price"}}</span>
                 </p>
               </footer>
 

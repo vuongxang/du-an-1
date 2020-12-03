@@ -8,17 +8,15 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>Quản lý Topics</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">add new</li>
+                
+                    <div class="">
+                        <ol class="breadcrumb ">
+                            <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="#">Chủ đề</a></li>
+                            <li class="breadcrumb-item active">Thêm mới</li>
                         </ol>
                     </div>
-                </div>
+                
             </div><!-- /.container-fluid -->
         </section>
 
@@ -29,9 +27,9 @@
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- general form elements -->
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Thêm mới</h3>
+                        <div class="card ">
+                            <div class="card-header bg-indigo-500">
+                                <h3 class="card-title text-gray-50">Thêm mới</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -39,9 +37,9 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="topic-name">Tên topic</label>
+                                        <label for="topic-name">Tên chủ đề</label>
                                         <input type="text" name="name" class="form-control" id="topic-name"
-                                            placeholder="topic...">
+                                            placeholder="Tên chủ đề">
                                         @error('name')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
@@ -51,7 +49,7 @@
                                     <div class="form-group">
                                         <label>Mô tả</label>
                                         <textarea class="form-control" name="desc" rows="3"
-                                            placeholder="Mô tả..." id="my-editor"></textarea>
+                                            placeholder="Mô tả" ></textarea>
                                         @error('desc')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}
@@ -59,8 +57,18 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Show_menu</label>
-                                        <select name="show_menu" id="">
+                                        <label for="price">Giá </label>
+                                        <input type="text" name="price" class="form-control" id="price"
+                                            placeholder="Mặc định miễn phí">
+                                        @error('name')
+                                            <span class="text-danger" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Hiển thị ở menu</label>
+                                        <select name="show_menu" id="" class="form-control">
                                             <option value="1">Có</option>
                                             <option value="0">Không</option>
                                         </select>
@@ -68,19 +76,18 @@
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-btn">
-                                          <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-                                            <i class="fa fa-picture-o"></i> Choose
+                                          <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
+                                            <i class="fa fa-picture-o "></i> Choose
                                           </a>
                                         </span>
                                         <input id="thumbnail" class="form-control" type="text" name="image">
                                       </div>
                                       <img id="holder" style="margin-top:15px;max-height:100px;">
-                                      
                                 </div>
                                 <!-- /.card-body -->
 
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                <div class="card-footer text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg btn-block bg-indigo-700">Tạo mới</button>
                                 </div>
                             </form>
                         </div>
