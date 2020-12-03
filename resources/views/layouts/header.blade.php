@@ -13,7 +13,7 @@
         <div class="flex ">
           <div class="mr-8"><a href="{{route('home')}}" class=" font-semibold hover:text-purple-300 hover:no-underline text-purple-100">TRANG CHỦ</a></div>
           <div class="mr-8"><a href="{{route('site.topic')}}" class="font-semibold hover:text-purple-300 hover:no-underline text-purple-100">HỌC</a></div>
-          <div><a href="{{route('home')}}" class=" font-semibold hover:text-purple-300 hover:no-underline text-purple-100">TIN TỨC</a></div>
+          <div><a href="{{route('site.posts')}}" class=" font-semibold hover:text-purple-300 hover:no-underline text-purple-100">TIN TỨC</a></div>
         </div>
       </div>
       <div class="flex ">
@@ -27,15 +27,15 @@
         </div>
         @endif
         @else
-        <a id="navbarDropdown" class="nav-link dropdown-toggle font-semibold hover:text-purple-300 hover:no-underline text-purple-100" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-          {{ Auth::user()->name }}
+        <a id="navbarDropdown" class="d-flex justify-content-around nav-link dropdown-toggle font-semibold hover:text-purple-300 hover:no-underline text-purple-100" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <img src="{{ Auth::user()->avatar }}" alt="" width="30"> <span>{{ Auth::user()->name }}</span>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a id="navbarDropdown" class="dropdown-item" href="#">
+            <a id="navbarDropdown" class="dropdown-item" href="{{route('site.thong-tin-user',Auth::user()->id)}}">
             {{ __('Thông tin cá nhân') }}
           </a>
-          <a id="navbarDropdown" class="dropdown-item" href="#">
+          <a id="navbarDropdown" class="dropdown-item" href="{{route('site.lich-su-hoc')}}">
             {{ __('Lịch sử học') }}
           </a>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

@@ -19,12 +19,11 @@
   <div class="col-span-1">
     <div class=" border border-blue-800 rounded px-4 py-4">
       <ul class="list-none">
-        <li class="border-b-2 border-gray-300 py-2"><a href="" class="text-blue-800 font-bold">Learn History</a></li>
-        <li class="border-b-2 border-gray-300 py-2"><a href="" class="text-blue-800 font-bold">Lorem ipsum dolor</a></li>
-        <li class="border-b-2 border-gray-300 py-2"><a href="" class="text-blue-800 font-bold">Lorem ipsum dolor</a></li>
-        <li class="border-b-2 border-gray-300 py-2"><a href="" class="text-blue-800 font-bold">Lorem ipsum dolor</a></li>
-        <li class="border-b-2 border-gray-300 py-2"><a href="" class="text-blue-800 font-bold">Lorem ipsum dolor</a></li>
+        @foreach ($models as $item)
+          <li class="border-b-2 border-gray-300 py-2"><a href="{{route('site.post',$item->id)}}" class="text-blue-800 font-bold">{{$item->title}}</a></li>
+        @endforeach
       </ul>
+      {{$models->links()}}
     </div>
   </div>
   <div class="col-span-4">

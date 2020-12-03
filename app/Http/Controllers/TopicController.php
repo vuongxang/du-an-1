@@ -8,6 +8,8 @@ use App\Models\Lesson;
 use Illuminate\Support\Facades\DB;
 use FFI\Exception;
 use App\Http\Requests\StoreTopic;
+use App\Models\DangKyHoc;
+use Illuminate\Support\Facades\Auth;
 
 class TopicController extends Controller
 {
@@ -108,6 +110,7 @@ class TopicController extends Controller
     {
         $model = Topic::find($id);
         $model->fill($request->all());
+        $model->image = str_replace('http://localhost/storage', 'http://127.0.0.1:8000/storage', $model->image);
         $model->save();
         // echo "<pre>";
         // var_dump($model); die;
@@ -137,9 +140,11 @@ class TopicController extends Controller
     {
         $topicDetail = Topic::where('id', $id)->first();
         $lessons = Lesson::where('topic_id',$id)->get();
+        $dang_ky_hoc = DangKyHoc::where('topic_id',$id)->where('user_id',Auth::user()->id)->first();
+        // dd($dang_ky_hoc);
         // $topicDetail=Topic::where('id',$id)->first();
         // $cate = Topic::find($id);
 
-        return view('frontend.pages.topicdetail', compact('topicDetail','lessons'));
+        return view('frontend.pages.topicdetail', compact('topicDetail','lessons','dang_ky_hoc'));
     }
 }

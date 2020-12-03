@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Lesson;
+use App\Models\DangKyHoc;
 class Topic extends Model
 {
     protected $table = 'topics';
@@ -22,5 +23,9 @@ class Topic extends Model
 
     public function lesson(){
         return $this->hasMany(Lesson::class,'topic_id');
+    }
+
+    public function DangKyHoc(){
+        return $this->hasMany(DangKyHoc::class,'topic_id');
     }
 }

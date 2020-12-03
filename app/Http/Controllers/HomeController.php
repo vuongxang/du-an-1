@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Topic;
+
 class HomeController extends Controller
 {
     /**
@@ -23,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
-        return view('home',compact('posts'));
+        $posts = Post::paginate(8);
+        $topics = Topic::paginate(4);
+        return view('home',compact('posts','topics'));
     }
 }

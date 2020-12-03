@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <label>Mô tả</label>
                                         <textarea class="form-control" name="desc" rows="3"
-                                            placeholder="Mô tả...">{{$topic->name}}</textarea>
+                                            placeholder="Mô tả...">{{$topic->desc}}</textarea>
                                         @error('desc')
                                             <span class="text-danger" role="alert">
                                                 {{ $message }}

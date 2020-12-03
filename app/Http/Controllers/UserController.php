@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DangKyHoc;
+use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\User;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     /**
@@ -82,5 +84,17 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function userDetail($id){
+        $user = User::find($id);
+        return view('frontend.pages.user-detail',compact('user'));
+    }
+
+    public function lichSuHoc(){
+        $topics = Topic::all();
+        $user = Auth::user();
+        $userDangKyHoc = DangKyHoc::where('user_id',$user->id)->get();
+        return view('frontend.pages.lich-su-hoc',compact('topics','userDangKyHoc'));
     }
 }

@@ -78,85 +78,80 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-<div class="">
-  <div class="container mx-auto grid grid-cols-2 gap-4">
-    <div class="">
-      @foreach ($posts as $item)
-      <div class="grid grid-cols-2 gap-1 p-4">
-        <img src="{{$item->image}}" width="200px" alt="">
-        <div class="">
-          <h3 class="text-lg font-bold">{{$item->title}}</h3>
-          <p>{!!$item->content!!}</p>
-          <a class="border rounded px-4 py-1 text-white bg-blue-800 font-bold">More</a>
-        </div>
-      </div>
-      @endforeach
-      {{$posts->links()}}
-      <!--End Posts-->
-
+  <section>
+    <div class="title">
+      <h2 class="text-center my-4">BÀI VIẾT</h2>
     </div>
-    <!-- <div class="">
-      <div class="p-4  flex justify-center">
-        @guest
-        @if (Route::has('register'))
-        <div class="border rounded p-4  bg-blue-800 shadow-md">
-          <h3 class="text-white text-center font-bold text-xl">Register Now</h3>
-          <form class=" px-16 pt-6 pb-8 mb-2" action="{{ route('register')}}">
-            @csrf
-            <div class="mb-4">
-              <label class="block text-white text-sm font-bold mb-2" for="username">
-                {{ __('Name') }}
-              </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('name') is-invalid @enderror" id="username" type="text" name="name" placeholder="Username" value="{{ old('name') }}" required autocomplete="name" autofocus>
-              @error('name')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
+    <div class="container">
+      <div class="row">
+        @foreach ($posts as $item)
+        <div class="col-sm-6 col-md-6 col-lg-3">
+          <div class="card">
+            <img src="{{$item->image}}" class="card-img-top">
+            <div class="card-body">
+              <h5 class="card-title">{{$item->title}}</h5>
+              <p class="card-text">{!!$item->content!!}</p>
+              <a href="{{route('site.post',$item->id)}}" class="btn btn-primary">Chi tiết</a>
             </div>
-            <div class="mb-4">
-              <label class="block text-white text-sm font-bold mb-2" for="username">
-                {{ __('E-Mail Address') }}
-              </label>
-              <input class="@error('email') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" name="email" value="{{ old('email') }}" required autocomplete="email">
-              @error('email')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
-            <div class="mb-4">
-              <label class="block text-white text-sm font-bold mb-2" for="username">
-                {{ __('Password') }}
-              </label>
-              <input class="@error('password') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="password" name="password" required autocomplete="new-password">
-              @error('password')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
-            <div class="mb-6">
-              <label class="block text-white text-sm font-bold mb-2" for="password">
-                {{ __('Confirm Password') }}
-              </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password_confirmation" required autocomplete="new-password">
-            </div>
-            <div class="flex items-center justify-between">
-              <button class="bg-white text-blue-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                {{ __('Register') }}
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
-        @endif
-        @else
-        <div class="bg-blue-800 w-full">
-          <h3 class="text-white">Quản lý học tập</h3>
-        </div>
-        @endguest
+        @endforeach
       </div>
-    </div> -->
-  </div>
-</div>
+      {{$posts->links()}}
+    </div>
+  </section><!--End Posts-->
+  <section>
+    <div class="container">
+      <div class="title">
+        <h2 class="text-center my-4">TOPIC</h2>
+      </div>
+      <div class="col-span-4">
+        <div class=" border border-gray-400 rounded px-4 py-4">
+          <div class="flex flex-wrap -mx-1 lg:-mx-4">
+  
+            @foreach ($topics as $item)
+            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+  
+              <!-- Article -->
+              <article class="overflow-hidden rounded-lg shadow-lg">
+  
+                <a href="{{route('site.topic-detail',$item->id)}}">
+                  <img alt="Placeholder" class="block h-auto w-full" src="{{$item->image}}">
+                </a>
+  
+                <header class="flex items-center justify-between leading-tight p-3 md:p-4">
+                  <h1 class="text-lg">
+                    <a class="no-underline text-black font-semibold hover:underline hover:text-black" href="{{route('site.topic-detail',$item->id)}}">
+                      {{$item->name}}
+                    </a>
+                  </h1>
+                  <p class="text-grey-darker text-sm">
+                    <!-- 14/4/19 -->
+                  </p>
+                </header>
+  
+                <body>
+                  <p class="p-3">
+                    {{$item->desc}}
+                  </p>
+                </body>
+                <footer class="flex items-center justify-between leading-none p-3 md:p-4 ">
+  
+                  <a class="ring ring-2 ring-indigo-300 px-3 py-2 rounded-full text-indigo-500 hover:bg-indigo-500 hover:no-underline hover:text-gray-50" href="{{route('site.topic-detail',$item->id)}}">
+                    <span class="">Xem Thêm</span>
+                  </a>
+                  <span class="bg-purple-600 px-3 py-2 rounded-full text-gray-50" href="#">
+                    <span class="">Miễn Phí</span>
+                  </span>
+                </footer>
+  
+              </article>
+              <!-- END Article -->
+            </div>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!--End topics-->
 @endsection

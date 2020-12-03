@@ -36,19 +36,7 @@
         </ul>
       </div>
     </div>
-    <!-- <div class="col-span-4">
-    <div class=" border border-gray-400 rounded px-4 py-4">
-      <ul class="list-none">
-        @foreach ($topics as $item)
-        <li class="border-b-2 border-gray-300 py-2 flex align-items-center">
-          <img src="{{$item->image}}" alt="" width="50" class="rounded-full mr-3">
-          <a href="{{route('site.lesson',$item->id)}}" class="text-blue-800">{{$item->name}} </a>
-        </li>
-        @endforeach
 
-      </ul>
-    </div>
-  </div> -->
     <div class="col-span-4">
       <div class=" border border-gray-400 rounded px-4 py-4">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
@@ -89,9 +77,9 @@
                 <a class="ring ring-2 ring-indigo-300 px-3 py-2 rounded-full text-indigo-500 hover:bg-indigo-500 hover:no-underline hover:text-gray-50" href="{{route('site.topic-detail',$item->id)}}">
                   <span class="">Xem Thêm</span>
                 </a>
-                <p class="bg-purple-600 px-3 py-2 rounded-full text-gray-50" href="#">
+                <span class="bg-purple-600 px-3 py-2 rounded-full text-gray-50" href="#">
                   <span class="">Miễn Phí</span>
-                </p>
+                </span>
               </footer>
 
             </article>

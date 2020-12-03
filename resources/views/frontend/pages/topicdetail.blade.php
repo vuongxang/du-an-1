@@ -27,20 +27,17 @@
           <li class="list-group-item  group hover:bg-indigo-600 ">
             <div class="flex justify-between">
               <div>
-                <a href="{{route('site.lesson',$item->id)}}" class="group-hover:text-gray-100 group-hover:no-underline ">Tên Bài Học : {{$item->name}} </a>
+                <a href="{{route('site.lesson',$item->id)}}" class="group-hover:text-gray-100 group-hover:no-underline">Tên Bài Học : {{$item->name}} </a>
               </div>
               <div>
-                <p class="group-hover:text-gray-100 group-hover:no-underline">Thời gian học:</p>
+                <p class="group-hover:text-gray-100 group-hover:no-underline"></p>
               </div>
               <div>
                 <a href="{{route('site.lesson',$item->id)}}" class="text-gray-100 group-hover:no-underline bg-indigo-600 px-3 py-2 rounded-full group-hover:bg-gray-50 font-semibold group-hover:text-indigo-600">Bắt đầu </a>
               </div>
-              
             </div>
           </li>
           @endforeach
-
-
         </ul>
       @else
         <p>Chưa có bài học nào thuộc chủ đề này!</p>
@@ -61,7 +58,19 @@
             Học mọi lúc, mọi nơi 
           </p>
           <div class="mt-4 ">
-          <a href="#" class=" px-3 py-2 bg-indigo-600 text-gray-50 rounded-full shadow-xs cursor-pointer  border hover:no-underline hover:bg-indigo-200 hover:text-indigo-900  font-bold">Học Ngay</a>
+            @if (isset($dang_ky_hoc))
+              @if ($dang_ky_hoc->trang_thai==1)
+              <button type="submit" class=" px-3 py-2 bg-indigo-600 text-gray-50 rounded-full shadow-xs cursor-pointer  border hover:no-underline hover:bg-indigo-200 hover:text-indigo-900 ont-bold">Đã đăng ký</button>
+              @endif
+            @else
+              <form action="{{route('site.dang-ky-hoc')}}" method="post">
+                @csrf
+                <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                <input type="hidden" name="topic_id" value="{{$topicDetail->id}}">
+                <button type="submit" class=" px-3 py-2 bg-indigo-600 text-gray-50 rounded-full shadow-xs cursor-pointer  border hover:no-underline hover:bg-indigo-200 hover:text-indigo-900 ont-bold">Đăng ký học</button>
+              </form>
+            @endif
+          
           </div>
         </div>
         <!-- <div class="px-6 py-4">
