@@ -2,17 +2,12 @@
 @section('content')
 <section class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1>Quản lý câu hỏi</h1>
-        </div>
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">question</li>
+      
+          <ol class="breadcrumb ">
+            <li class="breadcrumb-item"><a href="#">Trang Chủ</a></li>
+            <li class="breadcrumb-item active">Câu hỏi</li>
           </ol>
-        </div>
-      </div>
+        
     </div><!-- /.container-fluid -->
   </section>
    <section class="content">
@@ -29,9 +24,8 @@
                   <thead>
                   <tr>
                     <th>ID</th>
-                    <th>Tên</th>
-                    <th>Bài học</th>
-                    <th>nội dung</th>
+                    <th>Tên câu hỏi</th>
+                    <th>Nội dung</th>
                     <th>Đáp án A</th>
                     <th>Đáp án B</th>
                     <th>Đáp án C</th>
@@ -45,7 +39,6 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->name}}</td>
-                                <td>5</td>
                                 <td>{!!$item->content!!}</td>
                                 <td>{{$item->a}}</td>
                                 <td>{{$item->b}}</td>

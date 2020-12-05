@@ -37,8 +37,13 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('topic/{id}', 'TopicController@topicDetail')->name('site.topic-detail');
     Route::get('lesson/{id}', 'LessonController@lessonPage')->name('site.lesson');
     Route::get('question/{id}', 'QuestionController@getQuestion')->name('site.get-question');
-    Route::post('quizz', 'LamQuizzController@quizz')->name('site.quizz-test');
+    Route::post('quizz', 'QuizController@quizz')->name('site.quizz');
     // Route::get('lesson/{id}', 'LessonController@showLesson')->name('site.show-lesson');
+    Route::post('dangkyhoc', 'DangKyHocController@dangKy')->name('site.dang-ky-hoc');
+    Route::get('user/{id}', 'UserController@userDetail')->name('site.thong-tin-user');
+    Route::get('lich-su-hoc', 'UserController@lichSuHoc')->name('site.lich-su-hoc');
+    Route::get('post', 'PostController@postPage')->name('site.posts');
+    Route::get('post/{id}', 'PostController@show')->name('site.post');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {

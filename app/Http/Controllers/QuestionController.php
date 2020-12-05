@@ -104,5 +104,10 @@ class QuestionController extends Controller
         $model->delete();
         return redirect()->route('lesson.index');
     }
-    
+    public function getQuestion($id)
+    {
+        $questions= Question::where('lesson_id',$id)->simplePaginate(1);
+        $lesson = Lesson::find($id);
+        return view('frontend.pages.showquestions',compact('questions','lesson'));
+    }
 }

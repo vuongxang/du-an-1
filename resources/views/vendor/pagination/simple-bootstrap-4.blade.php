@@ -19,7 +19,7 @@
                 </li>
             @else
                 <li class="page-item disabled" aria-disabled="true">
-                    <span class="rounded-full bg-purple-600 text-gray-50  px-3 py-2 hover:no-underline hover:bg-purple-700 hover:text-gray-50">Làm Kiểm tra</span>
+                    <span hef="" class="rounded-full bg-purple-600 text-gray-50  px-3 py-2 hover:no-underline hover:bg-purple-700 hover:text-gray-50">Làm Kiểm tra</span>
                 </li>
             @endif
         </ul>
